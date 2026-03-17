@@ -10,9 +10,7 @@ Copy
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Zen+Kaku+Gothic+New:wght@300;400;700&display=swap" rel="stylesheet">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 <style>
-/* ============================================
-   ФОН — оригинальный рабочий код, не трогаем
-   ============================================ */
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html, body { height: 100%; }
 body {
@@ -35,9 +33,6 @@ body::before {
   z-index: -1;
 }
  
-/* ============================================
-   CURSOR TRAIL
-   ============================================ */
 #trail { position: fixed; inset: 0; z-index: 9990; pointer-events: none; }
 .cur {
   position: fixed; z-index: 9999; pointer-events: none;
@@ -54,9 +49,6 @@ body::before {
   transition: left .12s ease, top .12s ease;
 }
  
-/* ============================================
-   CARD
-   ============================================ */
 .card {
   position: relative; z-index: 10;
   width: 350px; padding: 28px 24px 24px;
@@ -70,7 +62,7 @@ body::before {
 }
 @keyframes cardIn { from{opacity:0;transform:translateY(24px) scale(.96)} to{opacity:1;transform:none} }
  
-/* AVATAR */
+
 .av-wrap { position: relative; width: 116px; height: 116px; margin: 0 auto 14px; }
 .av-pulse {
   position: absolute; inset: -12px; border-radius: 50%; z-index: -1;
@@ -92,7 +84,7 @@ body::before {
 .av-box { position:relative; z-index:1; width:116px; height:116px; border-radius:50%; overflow:hidden; }
 .av-box video, .av-box img { width:100%; height:100%; object-fit:cover; display:block; }
  
-/* TEXT */
+
 .name {
   font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 4px;
   color: #fff; line-height: 1; margin-bottom: 3px;
@@ -102,7 +94,7 @@ body::before {
 .quote { font-size: 13px; color: rgba(255,255,255,.38); margin-bottom: 3px; letter-spacing: 6px; font-weight: 300; animation: cardIn .8s .11s both; }
 .subtitle { font-size: 10px; color: rgba(255,255,255,.22); margin-bottom: 20px; letter-spacing: 2px; text-transform: uppercase; animation: cardIn .8s .15s both; }
  
-/* SOCIALS */
+
 .socials { display:flex; justify-content:center; gap:10px; margin-bottom:16px; animation: cardIn .8s .19s both; }
 .socials a {
   width:42px; height:42px; display:flex; align-items:center; justify-content:center;
@@ -115,7 +107,7 @@ body::before {
 .socials a:hover { transform:translateY(-3px) scale(1.08); border-color:rgba(255,255,255,.3); color:white; }
 .socials a:hover::before { opacity:1; }
  
-/* LINKS */
+
 .links { display:flex; flex-direction:column; gap:7px; margin-bottom:18px; animation: cardIn .8s .23s both; }
 .link {
   display:flex; align-items:center; gap:11px;
@@ -131,10 +123,10 @@ body::before {
 .link:hover { background:rgba(255,255,255,.08); border-color:rgba(255,255,255,.2); transform:translateX(4px); color:#fff; }
 .link:hover .link-arr { opacity:.8; transform:translateX(3px); }
  
-/* DIVIDER */
+
 .div { height:1px; background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent); margin-bottom:15px; }
  
-/* PLAYER */
+
 .player { animation: cardIn .8s .27s both; }
 .np-label { font-size:9px; letter-spacing:3px; text-transform:uppercase; color:rgba(255,255,255,.25); margin-bottom:8px; }
 .np-label span { color:rgba(255,255,255,.6); font-weight:700; }
@@ -238,7 +230,7 @@ body::before {
 <audio id="audio"><source src="music.mp3" type="audio/mpeg"></audio>
  
 <script>
-// PLAYER
+
 const audio = document.getElementById('audio');
 const playIco = document.getElementById('playIco');
 const pf = document.getElementById('pf');
@@ -262,7 +254,7 @@ audio.addEventListener('timeupdate', ()=>{
 audio.addEventListener('ended', ()=>{ playIco.className='fas fa-play'; vbars.forEach(b=>b.classList.remove('on')); playing=false; pf.style.width='0%'; });
 prog.addEventListener('click', e=>{ const r=prog.getBoundingClientRect(); audio.currentTime=((e.clientX-r.left)/r.width)*audio.duration; });
  
-// CURSOR TRAIL
+
 const canvas = document.getElementById('trail');
 const ctx = canvas.getContext('2d');
 const curDot = document.getElementById('cur');
@@ -299,7 +291,7 @@ function drawTrail() {
 }
 drawTrail();
  
-// RIPPLE
+
 const card=document.querySelector('.card');
 const rs=document.createElement('style');
 rs.textContent='@keyframes rip{to{width:320px;height:320px;opacity:0}}';
